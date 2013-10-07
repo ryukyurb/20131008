@@ -1,0 +1,21 @@
+%h1 Listing bbs
+
+%table
+  %tr
+    %th Title
+    %th Contents
+    %th
+    %th
+    %th
+
+  - @bbs.each do |bb|
+    %tr
+      %td= bb.title
+      %td= bb.contents
+      %td= link_to 'Show', bb
+      %td= link_to 'Edit', edit_bb_path(bb)
+      %td= link_to 'Destroy', bb, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bb', new_bb_path
